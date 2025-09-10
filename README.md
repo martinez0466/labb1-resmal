@@ -51,3 +51,6 @@ Record a 1–2 min demo: responsiveness (resize), search/filter/sort, open detai
 ## Image credits
 Images stored locally in `/assets`. Use your own or openly licensed sources (e.g., Wikimedia Commons, Unsplash). Add attribution if required.
 
+## Wireframes
+- [Desktop (PNG)](docs/wireframe-desktop.png)
+- [Mobile (PNG)](docs/wireframe-mobile.png)
