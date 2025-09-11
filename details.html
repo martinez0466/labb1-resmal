@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Destination details</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- Inline JSON seed as a fallback if fetch fails -->
+    <script id="seed-data" type="application/json">
+  [
+    {"id":"rome","name":"Rome","country":"Italy","region":"Europe","rating":4.8,"img":"assets/rome.jpg","desc":"Ancient history, the Colosseum, and pasta on every corner — perfect for culture lovers.","link":"https://www.rome.net"},
+    {"id":"kyoto","name":"Kyoto","country":"Japan","region":"Asia","rating":4.9,"img":"assets/kyoto.jpg","desc":"Temples, teahouses, and cherry blossoms — traditional Japanese charm.","link":"https://kyoto.travel/en/"},
+    {"id":"banff","name":"Banff","country":"Canada","region":"North America","rating":4.7,"img":"assets/banff.jpg","desc":"Turquoise lakes and the Canadian Rockies — a dream for hikers.","link":"https://parks.canada.ca/pn-np/ab/banff/visit"},
+    {"id":"cape-town","name":"Cape Town","country":"South Africa","region":"Africa","rating":4.6,"img":"assets/capetown.jpg","desc":"Table Mountain, nearby wine regions, and Atlantic breezes — a city close to nature.","link":"https://www.theblondeabroad.com/ultimate-cape-town-travel-guide/"},
+    {"id":"machu","name":"Machu Picchu","country":"Peru","region":"South America","rating":4.9,"img":"assets/machupicchu.jpg","desc":"Incan ruins in the cloud forest — one of the world’s most iconic places.","link":"https://www.peruhop.com/machu-picchu/"},
+    {"id":"queenstown","name":"Queenstown","country":"New Zealand","region":"Oceania","rating":4.5,"img":"assets/queenstown.jpg","desc":"New Zealand’s adventure capital — bungy, skiing, and lake views.","link":"https://www.queenstownnz.co.nz/plan/queenstown-maps-and-visitor-guides/"}
+  ]
+  </script>
+    <script src="js/details.js" defer></script>
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="wrap">
+            <div class="brand">
+                <div class="logo" aria-hidden="true"></div>
+                <div>
+                    <h1 class="title">Destination details</h1>
+                    <p class="subtitle"><a class="btn" href="index.html">← Back to list</a></p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="wrap" role="main">
+        <section id="details">
+            <p class="subtitle">Loading…</p>
+        </section>
+
+        <section id="rating-section" style="margin-top:20px">
+            <h2>Rate this destination</h2>
+            <form id="rating-form" class="controls" novalidate>
+                <div class="control">
+                    <label for="name">Name *</label>
+                    <input id="name" name="name" type="text" required minlength="2" placeholder="Your name" />
+                </div>
+                <div class="control">
+                    <label for="rating">Rating *</label>
+                    <select id="rating" name="rating" required>
+                        <option value="">Select…</option>
+                        <option>5</option>
+                        <option>4</option>
+                        <option>3</option>
+                        <option>2</option>
+                        <option>1</option>
+                    </select>
+                </div>
+                <div class="control" style="grid-column: 1 / -1">
+                    <label for="comment">Comment *</label>
+                    <input id="comment" name="comment" type="text" required minlength="10"
+                        placeholder="At least 10 characters" />
+                </div>
+                <div class="control">
+                    <label>&nbsp;</label>
+                    <button class="btn" type="submit">Submit rating</button>
+                </div>
+            </form>
+
+            <div id="rating-result" style="margin-top:10px"></div>
+        </section>
+    </main>
+
+    <footer class="wrap site-footer">
+        <p>© <span id="year"></span> Destinations</p>
+    </footer>
+</body>
+
+</html>

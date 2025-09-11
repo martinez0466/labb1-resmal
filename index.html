@@ -9,12 +9,21 @@
         content="A simple HTML5/CSS/JS web app that lists travel destinations with search, filter, sort, details, and favorites." />
     <link rel="icon" href="data:," />
     <link rel="stylesheet" href="css/style.css" />
+    <!-- Inline JSON seed as a fallback if fetch fails -->
+    <script id="seed-data" type="application/json">
+    [
+      {"id":"rome","name":"Rome","country":"Italy","region":"Europe","rating":4.8,"img":"assets/rome.jpg","desc":"Ancient history, the Colosseum, and pasta on every corner — perfect for culture lovers.","link":"https://www.rome.net"},
+      {"id":"kyoto","name":"Kyoto","country":"Japan","region":"Asia","rating":4.9,"img":"assets/kyoto.jpg","desc":"Temples, teahouses, and cherry blossoms — traditional Japanese charm.","link":"hhttps://kyoto.travel/en/"},
+      {"id":"banff","name":"Banff","country":"Canada","region":"North America","rating":4.7,"img":"assets/banff.jpg","desc":"Turquoise lakes and the Canadian Rockies — a dream for hikers.","link":"https://parks.canada.ca/pn-np/ab/banff/visit"},
+      {"id":"cape-town","name":"Cape Town","country":"South Africa","region":"Africa","rating":4.6,"img":"assets/capetown.jpg","desc":"Table Mountain, nearby wine regions, and Atlantic breezes — a city close to nature.","link":"https://www.theblondeabroad.com/ultimate-cape-town-travel-guide/"},
+      {"id":"machu","name":"Machu Picchu","country":"Peru","region":"South America","rating":4.9,"img":"assets/machupicchu.jpg","desc":"Incan ruins in the cloud forest — one of the world’s most iconic places.","link":"https://www.peruhop.com/machu-picchu/"},
+      {"id":"queenstown","name":"Queenstown","country":"New Zealand","region":"Oceania","rating":4.5,"img":"assets/queenstown.jpg","desc":"New Zealand’s adventure capital — bungy, skiing, and lake views.","link":"hhttps://www.queenstownnz.co.nz/plan/queenstown-maps-and-visitor-guides/"}
+    ]
+    </script>
     <script src="js/app.js" defer></script>
 </head>
 
 <body>
-    <!-- G-level: semantic HTML5, responsive CSS, JS search/filter/sort/modal/favorites -->
-
     <header role="banner" class="site-header">
         <div class="wrap">
             <div class="brand" aria-label="Brand and page title">
@@ -66,7 +75,7 @@
 
     <main class="wrap" id="app" role="main">
         <section aria-live="polite" aria-busy="false">
-            <p id="count" class="subtitle" aria-atomic="true"></p>
+            <p id="count" class="subtitle" aria-atomic="true">Loading…</p>
             <div id="grid" class="grid" role="list"></div>
         </section>
     </main>
@@ -74,23 +83,6 @@
     <footer class="wrap site-footer" role="contentinfo">
         <p>© <span id="year"></span> Destinations – Lab 1 (HTML5, CSS, JavaScript).</p>
     </footer>
-
-    <!-- Details (native <dialog>) -->
-    <dialog id="modal" aria-labelledby="modal-title">
-        <div class="modal-head">
-            <h2 id="modal-title" class="modal-title">Details</h2>
-            <button id="closeModal" class="btn" aria-label="Close dialog">Close</button>
-        </div>
-        <div class="modal-content">
-            <img id="modal-img" class="modal-banner" alt="" />
-            <div class="modal-body">
-                <h3 id="modal-name" class="modal-name"></h3>
-                <p id="modal-meta" class="subtitle"></p>
-                <p id="modal-desc"></p>
-                <a id="modal-link" class="btn" href="#" target="_blank" rel="noopener">Learn more</a>
-            </div>
-        </div>
-    </dialog>
 </body>
 
 </html>
